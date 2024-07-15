@@ -21,6 +21,8 @@ import { ProductCommentModule } from './product-comment/product-comment.module';
 import { ProductComment } from './product-comment/entities/product-comment.entity';
 import { CouponModule } from './coupon/coupon.module';
 import { Coupon } from './coupon/entities/coupon.entity';
+import { ArticleComment } from './article-comment/entities/article-comment.entity';
+import { ArticleCommentModule } from './article-comment/article-comment.module';
 
 @Module({
   imports: [
@@ -31,7 +33,10 @@ import { Coupon } from './coupon/entities/coupon.entity';
       port: 32753,
       username: "root",
       database: "postgres",
-      entities: [UserEntity, CategoryEntity, WeblogCategoryEntity, Article, Siteinfo, Slider, Product, ProductComment, Coupon],
+      entities: [
+        UserEntity, CategoryEntity, WeblogCategoryEntity, Article, Siteinfo, Slider, Product, ProductComment,
+        Coupon, ArticleComment
+      ],
       synchronize: true
     }),
     AuthModule,
@@ -43,7 +48,8 @@ import { Coupon } from './coupon/entities/coupon.entity';
     SliderModule,
     ProductModule,
     ProductCommentModule,
-    CouponModule
+    CouponModule,
+    ArticleCommentModule
   ],
   controllers: [AppController],
   providers: [AppService],

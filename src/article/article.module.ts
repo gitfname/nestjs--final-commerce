@@ -14,5 +14,6 @@ import { WeblogCategoryModule } from 'src/weblog-category/weblog-category.module
   ],
   controllers: [ArticleController],
   providers: [ArticleService],
+  exports: [ArticleService]
 })
 export class ArticleModule { }

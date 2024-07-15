@@ -28,18 +28,6 @@ export class CouponController {
     await this.couponService.addProductToCoupon(+params.productId, +params.couponId)
   }
 
-  @Get("test")
-  test() {
-    const today = new Date()
-    const tomorrow = new Date()
-    tomorrow.setDate(tomorrow.getDate() + 20)
-
-    return {
-      today,
-      tomorrow
-    }
-  }
-
   @Get()
   async findAll(): Promise<Coupon[]> {
     return await this.couponService.findAll();
