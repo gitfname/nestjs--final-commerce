@@ -1,4 +1,5 @@
 import { CategoryEntity } from "src/category/category.entity";
+import { Coupon } from "src/coupon/entities/coupon.entity";
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn, BeforeInsert, BeforeUpdate, ManyToMany, ManyToOne } from "typeorm"
 
 function subtractPercentage(value: number, percentage: number): number {
@@ -52,6 +53,9 @@ export class Product {
 
     @Column("boolean", { default: false })
     isInSale: boolean;
+
+    @ManyToOne(() => Coupon, { nullable: true, onDelete: "SET NULL" })
+    coupon: Coupon;
 
     @BeforeInsert()
     @BeforeUpdate()

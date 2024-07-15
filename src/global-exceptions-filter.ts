@@ -10,10 +10,12 @@ import { ArticleNotFoundException } from "./exceptions/ArticleNotFoundException"
 import { SliderNotFoundException } from "./exceptions/SliderNotFoundException";
 import { ProductNotFoundException } from "./exceptions/ProductNotFoundException";
 import { ProductCommentNotFoundException } from "./exceptions/ProductCommentNotFoundException";
+import { CouponNotFoundException } from "./exceptions/CouponNotFoundException";
 
 @Catch(UserNotFoundException, EmailAlreadyTakenException, PhoneNumberAlreadyTakenException,
     PhoneNumberOrEmailAlreadyTakenException, CategoryNotFoundException, WeblogCategoryNotFoundException,
-    ArticleNotFoundException, SliderNotFoundException, ProductNotFoundException, ProductCommentNotFoundException)
+    ArticleNotFoundException, SliderNotFoundException, ProductNotFoundException, ProductCommentNotFoundException,
+    CouponNotFoundException)
 export class ExpectionsFilter implements ExceptionFilter {
     catch(exception: unknown, host: ArgumentsHost) {
         const res: Response = host.switchToHttp().getResponse()
